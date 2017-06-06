@@ -61,6 +61,7 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 /**
  * Date, currency, decimal and percent pipes.
