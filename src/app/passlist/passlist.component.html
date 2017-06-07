@@ -1,0 +1,79 @@
+<form (ngSubmit)="onSubmit()" #passlistForm="ngForm" class="container fluid">
+  <div class="row">
+    <div class="form-group col-md-3 cl-xs-12">
+      <div class="input-group">
+        <span class="input-group-addon">Password Amount</span>
+        <input type="text"
+          class="form-control" 
+          id="passwordAmount" 
+          [(ngModel)]="passlist.amount"
+          name="passwordAmount"
+          required
+          #passwordAmount="ngModel">
+        <div [hidden]="passwordAmount.valid || passwordAmount.pristine"
+          class="alert alert-danger">
+          Password amount is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-3 cl-xs-12">
+      <div class="input-group">
+        <span class="input-group-addon">Letter Amount</span>
+        <input type="text" 
+          class="form-control" 
+          id="letterAmount"
+          [(ngModel)]="passlist.letterAmount"
+          name="letterAmount"
+          required
+          #letterAmount="ngModel">
+        <div [hidden]="letterAmount.valid || letterAmount.pristine"
+          class="alert alert-danger">
+          Letter amount is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-3 cl-xs-12">
+      <div class="input-group">
+        <span class="input-group-addon">Number Amount</span>
+        <input type="text" 
+          class="form-control" 
+          id="numberAmount"
+          [(ngModel)]="passlist.numberAmount"
+          name="numberAmount"
+          required
+          #numberAmount="ngModel">
+        <div [hidden]="numberAmount.valid || numberAmount.pristine"
+          class="alert alert-danger">
+          Number amount is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-3 cl-xs-12">
+      <div class="input-group">
+        <span class="input-group-addon">Symbol Amount</span>
+        <input type="text" 
+          class="form-control"
+          id="symbolAmount"
+          [(ngModel)]="passlist.symbolAmount"
+          name="symbolAmount"
+          #symbolAmount="ngModel">
+      </div>
+    </div>
+    <button type="submit"
+      class="btn btn-primary" 
+      (click)="onSubmit()"
+      [disabled]="!passlistForm.form.valid">
+      Submit
+    </button>
+    <button type="button" 
+      class="btn btn-secondary"
+      (click)="passlistForm.reset()">Reset</button>
+  </div>
+</form>
+
+<div [hidden]="!submitted">
+  <div class="row"
+    *ngFor="let password of passlist.passwords">
+   &nbsp;&nbsp;&nbsp;{{password}}
+  </div>
+</div>
