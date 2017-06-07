@@ -1,4 +1,6 @@
-<form (ngSubmit)="onSubmit()" #passlistForm="ngForm" class="container fluid">
+<form (ngSubmit)="onSubmit()"
+  #passlistForm="ngForm" 
+  class="container fluid">
   <div class="row">
     <div class="form-group col-md-3 cl-xs-12">
       <div class="input-group">
@@ -61,7 +63,6 @@
     </div>
     <button type="submit"
       class="btn btn-primary" 
-      (click)="onSubmit()"
       [disabled]="!passlistForm.form.valid">
       Submit
     </button>
@@ -71,9 +72,13 @@
   </div>
 </form>
 
-<div [hidden]="!submitted">
-  <div class="row"
-    *ngFor="let password of passlist.passwords">
-   &nbsp;&nbsp;&nbsp;{{password}}
-  </div>
+<div class="container-fluid list-container"
+  [hidden]="!submitted"
+  id="passlistContainer">
+  <ul class="list-group">
+    <li class="list-group-item passlistElement"
+      *ngFor="let password of passlist.passwords">
+      {{password}}
+    </li>
+  </ul>
 </div>

@@ -1,5 +1,3 @@
-import { Password } from './password';
-
 export class Passlist {
   constructor(
     public amount: number,
